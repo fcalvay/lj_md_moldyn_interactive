@@ -1,0 +1,21 @@
+# Define the program to build
+bin_PROGRAMS = view
+
+# List of source files for 'myprogram'
+view_SOURCES =  view.c mc_lj.f moldynsimple.f90 var.inc lj.inc
+
+# Flags to pass to the C compiler
+AM_CFLAGS   = -O2
+AM_CFLAGS   += $(shell pkg-config --cflags glut)
+LDFLAGS += $(shell pkg-config --libs glut)
+
+
+# Libraries to link against
+#view_LDADD = -lm -lglut -lglu -lGL -lXmu
+
+# Install directory for the program (optional, default is usually fine)
+viewdir = $(prefix)/bin
+
+# Additional installation rules (optional)
+# install-exec-hook:
+#     echo "Post-install commands here"

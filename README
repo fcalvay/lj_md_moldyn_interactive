@@ -1,0 +1,87 @@
+
+# Project Name
+
+LJ_MC_MOLDYN_Interactive
+## Overview
+
+An interactive alternate molecular dynamics / Monte Carlo simulator for a 13 atom Lennard Jones cluster.
+
+Press z and Z to zoom, f and F to go back and forth, cursor keys to rotate.
+Use t and T to change the temperature
+Use r to reset the configuration 
+
+## Prerequisites
+
+Before building or running this project, you'll need to ensure that certain tools and libraries are installed and properly configured. Here's what you need:
+
+- **Xcode Command Line Tools** (for macOS users): Essential for building projects on macOS. Includes compilers, libraries, and other tools.
+
+### Installing Xcode Command Line Tools on macOS
+
+To install or update Xcode Command Line Tools:
+
+```sh
+xcode-select --install
+```
+
+If already installed and you're encountering issues, you may need to reset the path:
+
+```sh
+sudo xcode-select --reset
+```
+
+## Building the Project
+
+### Dependencies
+
+This project depends on several libraries, such as `ncurses` and `freeglut`. Here's how to manage these dependencies:
+
+#### Removing ncurses
+
+If you find that `ncurses` is not required for your build, you may remove it from your build scripts or Makefiles. Look for and adjust:
+
+- Compiler flags (`-I`) and linker flags (`-l`) in your `Makefile` or build scripts.
+- Configuration checks in `configure.ac` for Autoconf or `CMakeLists.txt` for CMake projects.
+
+#### Handling FreeGLUT
+
+For projects using FreeGLUT, ensure it's installed. On macOS, you can use Homebrew:
+
+```sh
+brew install freeglut
+```
+
+Use `pkg-config` to automatically adjust compiler and linker flags:
+
+```makefile
+CFLAGS += $(shell pkg-config --cflags freeglut)
+LDFLAGS += $(shell pkg-config --libs freeglut)
+```
+
+### Compiling
+
+General instructions for compiling the project. Include any necessary commands or steps specific to your project.
+
+For example, for a simple Makefile project:
+
+```sh
+make all
+```
+
+### Fixing Common Build Errors
+
+#### ld: library 'System' not found
+
+This error indicates issues with finding system libraries on macOS. Some steps to resolve this include:
+
+- **Updating Xcode Command Line Tools**: Run `xcode-select --install` to ensure they're up-to-date.
+- **Specifying the SDK Path**: Use `-isysroot $(xcrun --show-sdk-path)` in your compile and link commands.
+- **Checking SDK Links**: Ensure that SDK paths under `/Library/Developer/CommandLineTools/SDKs` are correct and not broken.
+
+## Contributing
+
+Contributions are encouraged
+
+## License
+
+GPL3 
