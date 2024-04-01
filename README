@@ -9,6 +9,7 @@ An interactive alternate molecular dynamics / Monte Carlo simulator for a 13 ato
 Press z and Z to zoom, f and F to go back and forth, cursor keys to rotate.
 Use t and T to change the temperature
 Use r to reset the configuration 
+You can change in between molecular dynamics and Monte-Carlo with the m key 
 
 ## Prerequisites
 
